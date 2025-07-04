@@ -17,11 +17,10 @@ public class VentanaPrincipal extends JFrame {
     private JMenuItem jMenuItemInsertarCarreras;
     private JMenuItem jMenuItemVerCarreras;
 
-    public VentanaPrincipal(){
-        this.setTitle("Hola como estas te ves muy bien heee");
+    public VentanaPrincipal(String tittle){
+        this.setTitle(tittle);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
-
     }
     private void initComponents(){
         // DesktopPane - Escritorio
@@ -50,6 +49,12 @@ public class VentanaPrincipal extends JFrame {
         // Elemento de menu: Insertar carrera
         jMenuItemInsertarCarreras = new JMenuItem();
         jMenuItemInsertarCarreras.setText("Insertar...");
+        jMenuItemInsertarCarreras.addActionListener(e -> {
+            JInternalFrameInsertarCarrera insertarCarrera = 
+                new JInternalFrameInsertarCarrera();
+            insertarCarrera.setVisible(true);
+            this.desktop.add(insertarCarrera);
+        });
 
         //
         jMenuAlumnos.add(jMenuItemVerAlumnos);
