@@ -47,6 +47,7 @@ public class JInternalFrameInsertarCarrera extends JInternalFrame{
         btnAceptar.setFont(new Font("Tahoma", Font.BOLD, 16));
         btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+        
         btnCancelar.addActionListener(e -> this.dispose());
 
         GroupLayout layout = new GroupLayout(getContentPane());
