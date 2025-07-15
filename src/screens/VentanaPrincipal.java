@@ -11,10 +11,13 @@ public class VentanaPrincipal extends JFrame{
     private JMenuBar jMenuBar;
     private JMenu jMenuAlumnos;
     private JMenu jMenuCarreras;
+    private JMenu jMenuBachilleratos;
     private JMenuItem jMenuItemInsertar;
     private JMenuItem jMenuItemVerAlumnos;
     private JMenuItem jMenuItemInsertarCarreras;
     private JMenuItem jMenuItemVerCarreras;
+    private JMenuItem JMenuItemInsertarBachillerato;
+    private JMenuItem JMenuItemVerBachilleratos;
 
     public VentanaPrincipal(String title){
         this.setTitle(title);
@@ -50,8 +53,23 @@ public class VentanaPrincipal extends JFrame{
         jMenuItemInsertarCarreras = new JMenuItem();
         jMenuItemInsertarCarreras.setText("Insertar...");
 
+        // Menu Bachilleratos
+        jMenuBachilleratos = new JMenu();
+        jMenuBachilleratos.setText("Bachilleratos");
+
+        // Elemento de menu: Ver Bachilleratos
+        JMenuItemVerBachilleratos = new JMenuItem();
+        JMenuItemVerBachilleratos.setText("Ver todos los bachilleratos...");
+
+        // Elemento de menu: Insertar Bachillerato
+        JMenuItemInsertarBachillerato = new JMenuItem();
+        JMenuItemInsertarBachillerato.setText("Insertar...");
+
         //Agregar el listener de eventos para ejecutar la accion de insertar carrera 
-        jMenuItemInsertarCarreras.addActionListener(e -> jmiInsertarCarreras());
+        jMenuItemInsertarCarreras.addActionListener(e -> insertarCarreras());
+
+        //Agregar el listener de venetos para ejecutar la accion de insertar bachilleratos
+        JMenuItemInsertarBachillerato.addActionListener(e -> insertarBachillerato());
        
 
 
@@ -64,11 +82,15 @@ public class VentanaPrincipal extends JFrame{
         jMenuCarreras.add(jMenuItemInsertarCarreras);
         jMenuBar.add(jMenuCarreras);
 
+        jMenuBachilleratos.add(JMenuItemVerBachilleratos);
+        jMenuBachilleratos.add(JMenuItemInsertarBachillerato);
+        jMenuBar.add(jMenuBachilleratos);
+
         this.setJMenuBar(jMenuBar);
         pack();
     }
 
-    private void jmiInsertarCarreras(){
+    private void insertarCarreras(){
         //1. Crear un objeto tipo JInternalFrame 
         JInternalFrameInsertarCarrera insertarCarrera = new JInternalFrameInsertarCarrera();
 
@@ -77,5 +99,16 @@ public class VentanaPrincipal extends JFrame{
 
         //3. Hacer visible el internal frame
         insertarCarrera.setVisible(true);
+    }
+
+    private void insertarBachillerato(){
+        //1. Crear un objeto tipo JInternalFrame 
+        JInternalFrameInsertarBachillerato insertarBachillerato = new JInternalFrameInsertarBachillerato();
+
+        //2. Agregar el internal frame al escritorio(desktop)
+        this.desktop.add(insertarBachillerato);
+
+        //3. Hacer visible el internal frame
+        insertarBachillerato.setVisible(true);
     }
 }
