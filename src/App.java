@@ -1,7 +1,17 @@
+import java.sql.Connection;
+import models.Conexion;
 import screens.VentanaPrincipal;
 
 public class App {
     public static void main(String[] args) throws Exception {
+
+        try {
+            Connection conn = Conexion.conectar();{
+                System.out.println("Conexion exitosa a la base de datos.");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al conectar con la base de datos.");
+        }
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
