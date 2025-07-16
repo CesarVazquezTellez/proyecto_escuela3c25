@@ -1,12 +1,14 @@
 import java.sql.Connection;
 import models.Conexion;
 import screens.VentanaPrincipal;
+import java.sql.SQLException;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Connection conn;
 
         try {
-            Connection conn = Conexion.conectar();{
+            conn = Conexion.conectar();{
                 System.out.println("Conexion exitosa a la base de datos.");
             }
         } catch (Exception e) {
