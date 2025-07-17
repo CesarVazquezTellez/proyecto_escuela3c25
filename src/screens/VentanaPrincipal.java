@@ -8,7 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class VentanaPrincipal extends JFrame{
-    private Connection conn;
+    private Connection conn; // Conexion a la base de datos
 
     public JDesktopPane desktop;  // Escritorio dentro del Frame
     private JMenuBar jMenuBar;
@@ -96,7 +96,7 @@ public class VentanaPrincipal extends JFrame{
 
     private void insertarCarreras(){
         //1. Crear un objeto tipo JInternalFrame 
-        JInternalFrameInsertarCarrera insertarCarrera = new JInternalFrameInsertarCarrera();
+        JInternalFrameInsertarCarrera insertarCarrera = new JInternalFrameInsertarCarrera(this.conn);
 
         //2. Agregar el internal frame al escritorio(desktop)
         this.desktop.add(insertarCarrera);
